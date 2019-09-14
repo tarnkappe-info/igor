@@ -84,10 +84,13 @@ SLAP_TEMPLATES = (
 )
 
 ITEMS = (
+    "rusty crowbar",
+    "folding chair",
+    "lamp",
+    "broken liquor bottle",
     "cast iron skillet",
     "large trout",
-    "baseball bat",
-    "cricket bat",
+    "aluminum baseball bat",
     "wooden cane",
     "nail",
     "printer",
