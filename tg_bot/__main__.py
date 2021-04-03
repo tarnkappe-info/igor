@@ -23,7 +23,7 @@ Hi {}, my name is {}! If you have any questions on how to use me, read /help - a
 
 I'm a group manager bot maintained by [this person](tg://user?id={}). I'm built in python3, using the \
 python-telegram-bot library, and am fully opensource - you can find what makes me tick \
-[here](github.com/bronderb/igor)!
+[here](github.com/tarnkappe-info/igor)!
 
 Feel free to submit pull requests on github, or to contact my support group, @Androidbotsupport, with any bugs, questions \
 or feature requests you might have :)
@@ -471,7 +471,11 @@ def process_update(self, update):
         return
 
     now = datetime.datetime.utcnow()
-    cnt = CHATS_CNT.get(update.effective_chat.id, 0)
+
+    if CHATS_CNT.get(update.effective_chat):
+        cnt = CHATS_CNT.get(update.effective_chat.id, 0)
+    else:
+        cnt = 0
 
     t = CHATS_TIME.get(update.effective_chat.id, datetime.datetime(1970, 1, 1))
     if t and now > t + datetime.timedelta(0, 1):
