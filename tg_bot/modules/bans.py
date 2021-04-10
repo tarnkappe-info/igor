@@ -1,4 +1,5 @@
 import html
+import random
 from typing import Optional, List
 
 from telegram import Message, Chat, Update, Bot, User
@@ -60,7 +61,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
 
     try:
         chat.kick_member(user_id)
-        bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        bot.send_sticker(chat.id, random.choice(BAN_STICKER))  # banhammer marie sticker
         message.reply_text("Banned!")
         return log
 
