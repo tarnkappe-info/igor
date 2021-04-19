@@ -474,10 +474,11 @@ def process_update(self, update):
 
     if CHATS_CNT.get(update.effective_chat, None):
         cnt = CHATS_CNT.get(update.effective_chat.id, 0)
+        t = CHATS_TIME.get(update.effective_chat.id, datetime.datetime(1970, 1, 1))
     else:
-        return
+        cnt = 0
+        t = now
 
-    t = CHATS_TIME.get(update.effective_chat.id, datetime.datetime(1970, 1, 1))
 
     if t and now > t + datetime.timedelta(0, 1):
         CHATS_TIME[update.effective_chat.id] = now
